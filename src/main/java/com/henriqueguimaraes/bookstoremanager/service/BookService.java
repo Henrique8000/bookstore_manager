@@ -1,5 +1,6 @@
 package com.henriqueguimaraes.bookstoremanager.service;
 
+import com.henriqueguimaraes.bookstoremanager.dto.BookDTO;
 import com.henriqueguimaraes.bookstoremanager.dto.MessageResponseDTO;
 import com.henriqueguimaraes.bookstoremanager.entity.Book;
 import com.henriqueguimaraes.bookstoremanager.repository.BookRepository;
@@ -17,8 +18,15 @@ public class BookService {
         this.bookRepository = bookRepository;
     }
 
-    public MessageResponseDTO create(Book book) {
-        Book savedBook = bookRepository.save(book);
+    public MessageResponseDTO create(BookDTO bookDTO) {
+        Book bookToSave = Book.builder()
+                .name(bookDTO.getName())
+                .pages(bookDTO.getPages())
+                .chapters(bookDTO.getChapters())
+                .author(bookDTO.getAuthor())
+                .build();
+
+        Book savedBook = bookRepository.save(bookToSave);
         return MessageResponseDTO.builder().message("Book created with ID " + savedBook.getId()).build();
     }
 
