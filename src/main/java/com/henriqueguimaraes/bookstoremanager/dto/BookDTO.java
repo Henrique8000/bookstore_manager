@@ -33,8 +33,10 @@ public class BookDTO {
 
     @NotBlank
     @Size(max = 100)
-    @Pattern(regexp ="(?:ISBN(?:-10)?:? )?(?=[0-9X]{10}$|(?=(?:[0-9]+[- ])))",
-            message = "ISBN format must be a valid format")
+    @Pattern(
+            regexp = "^(?:ISBN(?:-1[03])?:?\\s*)?(?:(?=.{10,17}$)\\d{1,5}[-\\s]?\\d{1,7}[-\\s]?\\d{1,7}[-\\s]?[\\dX]|(?=.{13,19}$)97[89][-\\s]?\\d{1,5}[-\\s]?\\d{1,7}[-\\s]?\\d{1,7}[-\\s]?\\d)$",
+            message = "ISBN must be a valid ISBN-10 or ISBN-13 format"
+    )
     private String isbn;
 
     @NotBlank

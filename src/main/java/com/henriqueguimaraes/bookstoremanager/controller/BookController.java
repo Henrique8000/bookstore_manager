@@ -2,8 +2,6 @@ package com.henriqueguimaraes.bookstoremanager.controller;
 
 import com.henriqueguimaraes.bookstoremanager.dto.BookDTO;
 import com.henriqueguimaraes.bookstoremanager.dto.MessageResponseDTO;
-import com.henriqueguimaraes.bookstoremanager.entity.Book;
-import com.henriqueguimaraes.bookstoremanager.repository.BookRepository;
 import com.henriqueguimaraes.bookstoremanager.service.BookService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
